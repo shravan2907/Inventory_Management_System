@@ -1,0 +1,41 @@
+{% extends 'partials/base.html' %}
+{% block title %}Transactions{% endblock %}
+{% block content %}
+{% include 'partials/topnav.html' %}
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-dark">
+                    <tr class="text-white">
+                        <!-- <th scope="col">Material ID</th> -->
+                        <th scope="col">Material Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Staff name</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transactions in transactions %}
+                    <tr>
+                        <!-- <th scope="row">MBF001</th> -->
+                        <td>{{ transactions.product.name }}</td>
+                        <td>{{ transactions.product.category }}</td>
+                        <td>{{ transactions.transaction_quantity }}</td>
+                        <td>
+                           {{transactions.staff.username}}  
+                        </td>
+                        <td>{{ transactions.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
